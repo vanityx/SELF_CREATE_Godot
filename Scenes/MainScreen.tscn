@@ -28,12 +28,8 @@ __meta__ = {
 [node name="GUI" type="CanvasLayer" parent="."]
 
 [node name="NinePatchRect" type="NinePatchRect" parent="GUI"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -1.11853
-margin_top = 2.51984
-margin_right = -1.11853
-margin_bottom = 2.51984
+margin_right = 1024.0
+margin_bottom = 600.0
 texture = ExtResource( 3 )
 region_rect = Rect2( 413.634, -0.213753, 73.8597, 46.7275 )
 __meta__ = {
@@ -46,17 +42,18 @@ anchor_bottom = 1.0
 margin_left = 30.0
 margin_top = 30.0
 margin_right = -30.0
-margin_bottom = -19.0
+margin_bottom = -30.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GameTitle" type="HBoxContainer" parent="GUI/NinePatchRect/VBoxContainer"]
+[node name="GameTitle" type="CenterContainer" parent="GUI/NinePatchRect/VBoxContainer"]
 margin_right = 964.0
 margin_bottom = 43.0
 
 [node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/GameTitle"]
-margin_right = 964.0
+margin_left = 415.0
+margin_right = 548.0
 margin_bottom = 43.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 5 )
@@ -65,50 +62,61 @@ text = "SELF_CREATE"
 align = 1
 valign = 1
 
-[node name="HBoxMain" type="HBoxContainer" parent="GUI/NinePatchRect/VBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="GUI/NinePatchRect/VBoxContainer"]
 margin_top = 47.0
-margin_right = 448.0
-margin_bottom = 551.0
+margin_right = 964.0
+margin_bottom = 547.0
+
+[node name="HBoxMain" type="HBoxContainer" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer"]
+margin_left = 70.0
+margin_right = 893.0
+margin_bottom = 500.0
 size_flags_horizontal = 2
 size_flags_vertical = 2
 
-[node name="HBoxLeft" type="HBoxContainer" parent="GUI/NinePatchRect/VBoxContainer/HBoxMain"]
-size_flags_horizontal = 0
-size_flags_vertical = 0
+[node name="HBoxLeft" type="MarginContainer" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain"]
+margin_right = 375.0
+margin_bottom = 475.0
+rect_min_size = Vector2( 375, 475 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="Character" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/HBoxLeft" instance=ExtResource( 1 )]
+light_mask = -2147483647
+position = Vector2( 197.796, 57.5682 )
+
+[node name="VBoxRight" type="VBoxContainer" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain"]
+margin_left = 379.0
+margin_right = 823.0
+margin_bottom = 500.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Character" parent="GUI/NinePatchRect/VBoxContainer/HBoxMain/HBoxLeft" instance=ExtResource( 1 )]
-position = Vector2( 197.796, 57.5682 )
-
-[node name="VBoxRight" type="VBoxContainer" parent="GUI/NinePatchRect/VBoxContainer/HBoxMain"]
-margin_left = 415.0
-margin_right = 859.0
-margin_bottom = 504.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-
-[node name="MenuTitle" type="Label" parent="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight"]
+[node name="MenuTitle" type="Label" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight"]
 margin_right = 444.0
 margin_bottom = 40.0
+size_flags_vertical = 1
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 0
 text = "SELECTION MENU"
 
-[node name="MainMenu" type="HBoxContainer" parent="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight"]
+[node name="MainMenu" type="HBoxContainer" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight"]
 margin_top = 44.0
 margin_right = 444.0
 margin_bottom = 500.0
 
-[node name="MainButtons" type="VBoxContainer" parent="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu"]
+[node name="MainButtons" type="VBoxContainer" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu"]
 margin_right = 220.0
-margin_bottom = 456.0
-size_flags_vertical = 3
+margin_bottom = 282.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
 custom_constants/separation = 8
 
-[node name="SkinButton" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu/MainButtons"]
+[node name="SkinButton" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/MainButtons"]
 margin_right = 220.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 220, 50 )
@@ -119,7 +127,7 @@ texture_pressed = ExtResource( 8 )
 texture_hover = ExtResource( 6 )
 expand = true
 
-[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu/MainButtons/SkinButton"]
+[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/MainButtons/SkinButton"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 15.0
@@ -132,7 +140,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="NoseButton" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu/MainButtons"]
+[node name="NoseButton" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/MainButtons"]
 margin_top = 58.0
 margin_right = 220.0
 margin_bottom = 108.0
@@ -143,7 +151,7 @@ texture_normal = ExtResource( 2 )
 texture_hover = ExtResource( 6 )
 expand = true
 
-[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu/MainButtons/NoseButton"]
+[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/MainButtons/NoseButton"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 15.0
@@ -156,7 +164,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="LipsButton" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu/MainButtons"]
+[node name="LipsButton" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/MainButtons"]
 margin_top = 116.0
 margin_right = 220.0
 margin_bottom = 166.0
@@ -167,7 +175,7 @@ texture_normal = ExtResource( 2 )
 texture_hover = ExtResource( 6 )
 expand = true
 
-[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu/MainButtons/LipsButton"]
+[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/MainButtons/LipsButton"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 15.0
@@ -180,7 +188,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="EyesButton" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu/MainButtons"]
+[node name="EyesButton" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/MainButtons"]
 margin_top = 174.0
 margin_right = 220.0
 margin_bottom = 224.0
@@ -191,7 +199,7 @@ texture_normal = ExtResource( 2 )
 texture_hover = ExtResource( 6 )
 expand = true
 
-[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu/MainButtons/EyesButton"]
+[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/MainButtons/EyesButton"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 15.0
@@ -204,7 +212,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="HairButton" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu/MainButtons"]
+[node name="HairButton" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/MainButtons"]
 margin_top = 232.0
 margin_right = 220.0
 margin_bottom = 282.0
@@ -215,7 +223,7 @@ texture_normal = ExtResource( 2 )
 texture_hover = ExtResource( 6 )
 expand = true
 
-[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu/MainButtons/HairButton"]
+[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/MainButtons/HairButton"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 15.0
@@ -228,20 +236,22 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="OptionButtons" type="VBoxContainer" parent="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu"]
+[node name="OptionButtons" type="VBoxContainer" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu"]
 margin_left = 224.0
 margin_right = 444.0
 margin_bottom = 456.0
-size_flags_horizontal = 3
+rect_min_size = Vector2( 220, 0 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
 custom_constants/separation = 8
 
-[node name="SkinMenu" type="VBoxContainer" parent="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons"]
+[node name="SkinMenu" type="VBoxContainer" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons"]
 margin_right = 220.0
 margin_bottom = 224.0
 custom_constants/separation = 8
 script = ExtResource( 9 )
 
-[node name="SkinOpt1" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu"]
+[node name="SkinOpt1" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu"]
 margin_right = 220.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 220, 50 )
@@ -251,7 +261,7 @@ texture_normal = ExtResource( 2 )
 texture_hover = ExtResource( 6 )
 expand = true
 
-[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu/SkinOpt1"]
+[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu/SkinOpt1"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 15.0
@@ -264,7 +274,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="SkinOpt2" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu"]
+[node name="SkinOpt2" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu"]
 margin_top = 58.0
 margin_right = 220.0
 margin_bottom = 108.0
@@ -275,7 +285,7 @@ texture_normal = ExtResource( 2 )
 texture_hover = ExtResource( 6 )
 expand = true
 
-[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu/SkinOpt2"]
+[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu/SkinOpt2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 15.0
@@ -288,7 +298,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="SkinOpt3" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu"]
+[node name="SkinOpt3" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu"]
 margin_top = 116.0
 margin_right = 220.0
 margin_bottom = 166.0
@@ -299,7 +309,7 @@ texture_normal = ExtResource( 2 )
 texture_hover = ExtResource( 6 )
 expand = true
 
-[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu/SkinOpt3"]
+[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu/SkinOpt3"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 15.0
@@ -312,7 +322,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="SkinOpt4" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu"]
+[node name="SkinOpt4" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu"]
 margin_top = 174.0
 margin_right = 220.0
 margin_bottom = 224.0
@@ -323,7 +333,7 @@ texture_normal = ExtResource( 2 )
 texture_hover = ExtResource( 6 )
 expand = true
 
-[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu/SkinOpt4"]
+[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu/SkinOpt4"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 15.0
@@ -336,14 +346,14 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="NoseMenu" type="VBoxContainer" parent="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons"]
+[node name="NoseMenu" type="VBoxContainer" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons"]
 margin_top = 232.0
 margin_right = 220.0
 margin_bottom = 456.0
 custom_constants/separation = 8
 script = ExtResource( 4 )
 
-[node name="NoseOpt1" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/NoseMenu"]
+[node name="NoseOpt1" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/NoseMenu"]
 margin_right = 220.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 220, 50 )
@@ -353,7 +363,7 @@ texture_normal = ExtResource( 2 )
 texture_hover = ExtResource( 6 )
 expand = true
 
-[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/NoseMenu/NoseOpt1"]
+[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/NoseMenu/NoseOpt1"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 15.0
@@ -366,7 +376,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="NoseOpt2" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/NoseMenu"]
+[node name="NoseOpt2" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/NoseMenu"]
 margin_top = 58.0
 margin_right = 220.0
 margin_bottom = 108.0
@@ -377,7 +387,7 @@ texture_normal = ExtResource( 2 )
 texture_hover = ExtResource( 6 )
 expand = true
 
-[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/NoseMenu/NoseOpt2"]
+[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/NoseMenu/NoseOpt2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 15.0
@@ -390,7 +400,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="NoseOpt3" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/NoseMenu"]
+[node name="NoseOpt3" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/NoseMenu"]
 margin_top = 116.0
 margin_right = 220.0
 margin_bottom = 166.0
@@ -401,7 +411,7 @@ texture_normal = ExtResource( 2 )
 texture_hover = ExtResource( 6 )
 expand = true
 
-[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/NoseMenu/NoseOpt3"]
+[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/NoseMenu/NoseOpt3"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 15.0
@@ -414,7 +424,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="NoseOpt4" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/NoseMenu"]
+[node name="NoseOpt4" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/NoseMenu"]
 margin_top = 174.0
 margin_right = 220.0
 margin_bottom = 224.0
@@ -425,7 +435,7 @@ texture_normal = ExtResource( 2 )
 texture_hover = ExtResource( 6 )
 expand = true
 
-[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/NoseMenu/NoseOpt4"]
+[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/NoseMenu/NoseOpt4"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 15.0
@@ -437,15 +447,9 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
-
-[node name="BottomMenu" type="HBoxContainer" parent="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight"]
-margin_top = 504.0
-margin_right = 444.0
-margin_bottom = 504.0
-size_flags_vertical = 3
-[connection signal="pressed" from="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu/MainButtons/SkinButton" to="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu" method="_on_SkinButton_pressed"]
-[connection signal="pressed" from="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu/MainButtons/NoseButton" to="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/NoseMenu" method="_on_NoseButton_pressed"]
-[connection signal="pressed" from="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu/SkinOpt1" to="GUI/NinePatchRect/VBoxContainer/HBoxMain/HBoxLeft/Character" method="_on_SkinOpt1_pressed"]
-[connection signal="pressed" from="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu/SkinOpt2" to="GUI/NinePatchRect/VBoxContainer/HBoxMain/HBoxLeft/Character" method="_on_SkinOpt2_pressed"]
-[connection signal="pressed" from="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu/SkinOpt3" to="GUI/NinePatchRect/VBoxContainer/HBoxMain/HBoxLeft/Character" method="_on_SkinOpt3_pressed"]
-[connection signal="pressed" from="GUI/NinePatchRect/VBoxContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu/SkinOpt4" to="GUI/NinePatchRect/VBoxContainer/HBoxMain/HBoxLeft/Character" method="_on_SkinOpt4_pressed"]
+[connection signal="pressed" from="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/MainButtons/SkinButton" to="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu" method="_on_SkinButton_pressed"]
+[connection signal="pressed" from="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/MainButtons/NoseButton" to="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/NoseMenu" method="_on_NoseButton_pressed"]
+[connection signal="pressed" from="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu/SkinOpt1" to="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/HBoxLeft/Character" method="_on_SkinOpt1_pressed"]
+[connection signal="pressed" from="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu/SkinOpt2" to="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/HBoxLeft/Character" method="_on_SkinOpt2_pressed"]
+[connection signal="pressed" from="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu/SkinOpt3" to="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/HBoxLeft/Character" method="_on_SkinOpt3_pressed"]
+[connection signal="pressed" from="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu/SkinOpt4" to="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/HBoxLeft/Character" method="_on_SkinOpt4_pressed"]
