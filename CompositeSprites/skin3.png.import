@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/scene_background.jpg-0d9725b089bf6c614485a6e672655aba.stex"
+path="res://.import/skin3.png-d171e339dd16a30486b214ff1de1ae3b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/scene_background.jpg"
-dest_files=[ "res://.import/scene_background.jpg-0d9725b089bf6c614485a6e672655aba.stex" ]
+source_file="res://CompositeSprites/skin3.png"
+dest_files=[ "res://.import/skin3.png-d171e339dd16a30486b214ff1de1ae3b.stex" ]
 
 [params]
 
