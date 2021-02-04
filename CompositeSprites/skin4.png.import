@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/button_normal.jpg-bc343f41bc19cdc5c7a7d1ee5189b55c.stex"
+path="res://.import/skin4.png-67c0563722993096cab50b378eea1fc1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/button_normal.jpg"
-dest_files=[ "res://.import/button_normal.jpg-bc343f41bc19cdc5c7a7d1ee5189b55c.stex" ]
+source_file="res://CompositeSprites/skin4.png"
+dest_files=[ "res://.import/skin4.png-67c0563722993096cab50b378eea1fc1.stex" ]
 
 [params]
 
