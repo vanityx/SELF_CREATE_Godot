@@ -1,13 +1,13 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://scenes/character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Buttons/button_normal.jpg" type="Texture" id=2]
 [ext_resource path="res://Buttons/scene_background.jpg" type="Texture" id=3]
 [ext_resource path="res://scripts/NoseMenu.gd" type="Script" id=4]
 [ext_resource path="res://Fonts/oswald_30.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Buttons/button_hover.jpg" type="Texture" id=6]
 [ext_resource path="res://Fonts/oswald_26.tres" type="DynamicFont" id=7]
-[ext_resource path="res://scenes/button_pressed.png" type="Texture" id=8]
+[ext_resource path="res://Buttons/button_pressed.png" type="Texture" id=8]
 [ext_resource path="res://scripts/SkinMenu.gd" type="Script" id=9]
 
 [sub_resource type="DynamicFontData" id=1]
@@ -68,26 +68,29 @@ margin_right = 964.0
 margin_bottom = 547.0
 
 [node name="HBoxMain" type="HBoxContainer" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer"]
-margin_left = 70.0
-margin_right = 893.0
+margin_left = 68.0
+margin_right = 895.0
 margin_bottom = 500.0
 size_flags_horizontal = 2
 size_flags_vertical = 2
 
-[node name="HBoxLeft" type="MarginContainer" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain"]
-margin_right = 375.0
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain"]
+margin_bottom = 500.0
+
+[node name="HBoxMid" type="MarginContainer" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain"]
+margin_left = 4.0
+margin_right = 379.0
 margin_bottom = 475.0
 rect_min_size = Vector2( 375, 475 )
 size_flags_horizontal = 2
 size_flags_vertical = 2
 
-[node name="Character" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/HBoxLeft" instance=ExtResource( 1 )]
-light_mask = -2147483647
-position = Vector2( 197.796, 57.5682 )
+[node name="Player" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/HBoxMid" instance=ExtResource( 1 )]
+position = Vector2( -215.447, -23.9385 )
 
 [node name="VBoxRight" type="VBoxContainer" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain"]
-margin_left = 379.0
-margin_right = 823.0
+margin_left = 383.0
+margin_right = 827.0
 margin_bottom = 500.0
 size_flags_horizontal = 2
 size_flags_vertical = 2
@@ -449,7 +452,3 @@ __meta__ = {
 }
 [connection signal="pressed" from="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/MainButtons/SkinButton" to="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu" method="_on_SkinButton_pressed"]
 [connection signal="pressed" from="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/MainButtons/NoseButton" to="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/NoseMenu" method="_on_NoseButton_pressed"]
-[connection signal="pressed" from="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu/SkinOpt1" to="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/HBoxLeft/Character" method="_on_SkinOpt1_pressed"]
-[connection signal="pressed" from="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu/SkinOpt2" to="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/HBoxLeft/Character" method="_on_SkinOpt2_pressed"]
-[connection signal="pressed" from="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu/SkinOpt3" to="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/HBoxLeft/Character" method="_on_SkinOpt3_pressed"]
-[connection signal="pressed" from="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu/SkinOpt4" to="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/HBoxLeft/Character" method="_on_SkinOpt4_pressed"]
