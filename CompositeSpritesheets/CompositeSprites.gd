@@ -22,6 +22,11 @@ const eyes_spritesheet = {
 	4 : preload("res://CompositeSpritesheets/F_Eyes_5.png"),
 }
 
+const bottoms_spritesheet = {
+	0 : preload("res://CompositeSpritesheets/F_Bottoms_1.png"),
+	1 : preload("res://CompositeSpritesheets/F_Bottoms_2.png"),
+}
+
 const top_spritesheet = {
 	0 : preload("res://CompositeSpritesheets/F_Top_1.png"),
 	1 : preload("res://CompositeSpritesheets/F_Top_2.png"),
@@ -30,7 +35,3 @@ const top_spritesheet = {
 	4 : preload("res://CompositeSpritesheets/F_TopD_5.png"),
 }
 
-const bottoms_spritesheet = {
-	0 : preload("res://CompositeSpritesheets/F_Bottoms_1.png"),
-	1 : preload("res://CompositeSpritesheets/F_Bottoms_2.png"),
-}

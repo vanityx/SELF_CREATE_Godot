@@ -11,20 +11,26 @@ script = ExtResource( 1 )
 position = Vector2( 369.981, 243.533 )
 
 [node name="Body" type="Sprite" parent="CompositeSprites"]
+scale = Vector2( 0.95, 0.95 )
 texture = ExtResource( 4 )
 hframes = 20
 
 [node name="Arms" type="Sprite" parent="CompositeSprites"]
+scale = Vector2( 0.95, 0.95 )
 hframes = 20
 
 [node name="Hair" type="Sprite" parent="CompositeSprites"]
+scale = Vector2( 0.95, 0.95 )
 hframes = 20
 
 [node name="Eyes" type="Sprite" parent="CompositeSprites"]
+scale = Vector2( 0.95, 0.95 )
 hframes = 20
 
 [node name="Top" type="Sprite" parent="CompositeSprites"]
+scale = Vector2( 0.95, 0.95 )
 hframes = 20
 
 [node name="Bottoms" type="Sprite" parent="CompositeSprites"]
+scale = Vector2( 0.95, 0.95 )
 hframes = 20

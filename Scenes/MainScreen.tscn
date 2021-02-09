@@ -1,22 +1,13 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Buttons/button_normal.jpg" type="Texture" id=2]
+[ext_resource path="res://Buttons/Arrowleft.png" type="Texture" id=2]
 [ext_resource path="res://Buttons/scene_background.jpg" type="Texture" id=3]
-[ext_resource path="res://scripts/NoseMenu.gd" type="Script" id=4]
-[ext_resource path="res://Fonts/oswald_30.tres" type="DynamicFont" id=5]
-[ext_resource path="res://Buttons/button_hover.jpg" type="Texture" id=6]
-[ext_resource path="res://Fonts/oswald_26.tres" type="DynamicFont" id=7]
-[ext_resource path="res://Buttons/button_pressed.png" type="Texture" id=8]
-[ext_resource path="res://scripts/SkinMenu.gd" type="Script" id=9]
-
-[sub_resource type="DynamicFontData" id=1]
-font_path = "res://Fonts/Oswald-VariableFont_wght.ttf"
-
-[sub_resource type="DynamicFont" id=2]
-size = 26
-use_filter = true
-font_data = SubResource( 1 )
+[ext_resource path="res://Buttons/Arrowright.png" type="Texture" id=5]
+[ext_resource path="res://Buttons/ButtonNormal.png" type="Texture" id=6]
+[ext_resource path="res://Fonts/dogicapixelbold.tres" type="DynamicFont" id=8]
+[ext_resource path="res://Buttons/ArrowRightSel.png" type="Texture" id=9]
+[ext_resource path="res://Buttons/ArrowLeftSel.png" type="Texture" id=10]
 
 [node name="MainScreen" type="Control"]
 anchor_right = 1.0
@@ -25,430 +16,342 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GUI" type="CanvasLayer" parent="."]
-
-[node name="NinePatchRect" type="NinePatchRect" parent="GUI"]
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
 margin_right = 1024.0
 margin_bottom = 600.0
 texture = ExtResource( 3 )
-region_rect = Rect2( 413.634, -0.213753, 73.8597, 46.7275 )
+region_rect = Rect2( -1, 17, 624, 397 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GUI/NinePatchRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 30.0
-margin_top = 30.0
-margin_right = -30.0
-margin_bottom = -30.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -25.0
+margin_bottom = -25.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GameTitle" type="CenterContainer" parent="GUI/NinePatchRect/VBoxContainer"]
-margin_right = 964.0
-margin_bottom = 43.0
+[node name="GameTitle" type="CenterContainer" parent="NinePatchRect/VBoxContainer"]
+margin_right = 979.0
+margin_bottom = 38.0
 
-[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/GameTitle"]
-margin_left = 415.0
-margin_right = 548.0
-margin_bottom = 43.0
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/GameTitle"]
+margin_left = 368.0
+margin_right = 610.0
+margin_bottom = 38.0
 size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "SELF_CREATE"
 align = 1
 valign = 1
 
-[node name="CenterContainer" type="CenterContainer" parent="GUI/NinePatchRect/VBoxContainer"]
-margin_top = 47.0
-margin_right = 964.0
-margin_bottom = 547.0
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
+margin_top = 42.0
+margin_right = 979.0
+margin_bottom = 555.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="HBoxMain" type="HBoxContainer" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer"]
-margin_left = 68.0
-margin_right = 895.0
-margin_bottom = 500.0
-size_flags_horizontal = 2
-size_flags_vertical = 2
+[node name="LeftMenu" type="VBoxContainer" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
+margin_right = 323.0
+margin_bottom = 513.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain"]
-margin_bottom = 500.0
+[node name="ChangeHair" type="TextureRect" parent="NinePatchRect/VBoxContainer/HBoxContainer/LeftMenu"]
+margin_top = 169.0
+margin_right = 323.0
+margin_bottom = 236.0
+texture = ExtResource( 6 )
+stretch_mode = 4
 
-[node name="HBoxMid" type="MarginContainer" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain"]
-margin_left = 4.0
-margin_right = 379.0
-margin_bottom = 475.0
-rect_min_size = Vector2( 375, 475 )
-size_flags_horizontal = 2
-size_flags_vertical = 2
-
-[node name="Player" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/HBoxMid" instance=ExtResource( 1 )]
-position = Vector2( -215.447, -23.9385 )
-
-[node name="VBoxRight" type="VBoxContainer" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain"]
-margin_left = 383.0
-margin_right = 827.0
-margin_bottom = 500.0
-size_flags_horizontal = 2
-size_flags_vertical = 2
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/LeftMenu/ChangeHair"]
+margin_left = 117.517
+margin_top = 14.3092
+margin_right = 200.517
+margin_bottom = 54.3092
+custom_fonts/font = ExtResource( 8 )
+text = "HAIR"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MenuTitle" type="Label" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight"]
-margin_right = 444.0
-margin_bottom = 40.0
-size_flags_vertical = 1
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_constants/shadow_offset_x = 0
-text = "SELECTION MENU"
-
-[node name="MainMenu" type="HBoxContainer" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight"]
-margin_top = 44.0
-margin_right = 444.0
-margin_bottom = 500.0
-
-[node name="MainButtons" type="VBoxContainer" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu"]
-margin_right = 220.0
-margin_bottom = 282.0
-size_flags_horizontal = 2
-size_flags_vertical = 2
-custom_constants/separation = 8
-
-[node name="SkinButton" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/MainButtons"]
-margin_right = 220.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 220, 50 )
-focus_neighbour_top = NodePath("../MenuHair")
-focus_neighbour_bottom = NodePath("../MenuNose")
+[node name="LBtnHair" type="TextureButton" parent="NinePatchRect/VBoxContainer/HBoxContainer/LeftMenu/ChangeHair"]
+anchor_top = -2.40299
+anchor_bottom = -2.40299
+margin_left = 12.1106
+margin_top = 169.329
+margin_right = 52.1106
+margin_bottom = 219.329
 texture_normal = ExtResource( 2 )
-texture_pressed = ExtResource( 8 )
-texture_hover = ExtResource( 6 )
+texture_pressed = ExtResource( 10 )
 expand = true
-
-[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/MainButtons/SkinButton"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 15.0
-rect_pivot_offset = Vector2( -453.344, 87.1894 )
-custom_fonts/font = ExtResource( 7 )
-custom_colors/font_color = Color( 0.933333, 0.933333, 0.933333, 1 )
-text = "SKIN"
-valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="NoseButton" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/MainButtons"]
-margin_top = 58.0
-margin_right = 220.0
-margin_bottom = 108.0
-rect_min_size = Vector2( 220, 50 )
-focus_neighbour_top = NodePath("../MenuSkin")
-focus_neighbour_bottom = NodePath("../MenuLips")
-texture_normal = ExtResource( 2 )
-texture_hover = ExtResource( 6 )
+[node name="RBtnHair" type="TextureButton" parent="NinePatchRect/VBoxContainer/HBoxContainer/LeftMenu/ChangeHair"]
+anchor_top = -2.41791
+anchor_bottom = -2.41791
+margin_left = 264.443
+margin_top = 168.583
+margin_right = 304.443
+margin_bottom = 218.583
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 9 )
 expand = true
-
-[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/MainButtons/NoseButton"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 15.0
-rect_pivot_offset = Vector2( -453.344, 87.1894 )
-custom_fonts/font = ExtResource( 7 )
-custom_colors/font_color = Color( 0.933333, 0.933333, 0.933333, 1 )
-text = "NOSE"
-valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="LipsButton" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/MainButtons"]
-margin_top = 116.0
-margin_right = 220.0
-margin_bottom = 166.0
-rect_min_size = Vector2( 220, 50 )
-focus_neighbour_top = NodePath("../MenuNose")
-focus_neighbour_bottom = NodePath("../MenuEyes")
-texture_normal = ExtResource( 2 )
-texture_hover = ExtResource( 6 )
-expand = true
-
-[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/MainButtons/LipsButton"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 15.0
-rect_pivot_offset = Vector2( -453.344, 87.1894 )
-custom_fonts/font = ExtResource( 7 )
-custom_colors/font_color = Color( 0.933333, 0.933333, 0.933333, 1 )
-text = "LIPS"
-valign = 1
+[node name="SPACE2" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/LeftMenu"]
+margin_top = 240.0
+margin_right = 323.0
+margin_bottom = 254.0
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
-[node name="EyesButton" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/MainButtons"]
-margin_top = 174.0
-margin_right = 220.0
-margin_bottom = 224.0
-rect_min_size = Vector2( 220, 50 )
-focus_neighbour_top = NodePath("../MenuLips")
-focus_neighbour_bottom = NodePath("../MenuHair")
-texture_normal = ExtResource( 2 )
-texture_hover = ExtResource( 6 )
-expand = true
+[node name="ChangeEyes" type="TextureRect" parent="NinePatchRect/VBoxContainer/HBoxContainer/LeftMenu"]
+margin_top = 258.0
+margin_right = 323.0
+margin_bottom = 325.0
+texture = ExtResource( 6 )
+stretch_mode = 4
 
-[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/MainButtons/EyesButton"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 15.0
-rect_pivot_offset = Vector2( -453.344, 87.1894 )
-custom_fonts/font = ExtResource( 7 )
-custom_colors/font_color = Color( 0.933333, 0.933333, 0.933333, 1 )
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/LeftMenu/ChangeEyes"]
+margin_left = 114.557
+margin_top = 13.9127
+margin_right = 202.557
+margin_bottom = 53.9127
+custom_fonts/font = ExtResource( 8 )
 text = "EYES"
-valign = 1
+align = 1
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
-[node name="HairButton" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/MainButtons"]
-margin_top = 232.0
-margin_right = 220.0
-margin_bottom = 282.0
-rect_min_size = Vector2( 220, 50 )
-focus_neighbour_top = NodePath("../MenuEyes")
-focus_neighbour_bottom = NodePath("../MenuSkin")
+[node name="LBtnEyes" type="TextureButton" parent="NinePatchRect/VBoxContainer/HBoxContainer/LeftMenu/ChangeEyes"]
+anchor_top = -1.35821
+anchor_bottom = -1.35821
+margin_left = 12.1106
+margin_top = 98.3295
+margin_right = 52.1106
+margin_bottom = 148.329
 texture_normal = ExtResource( 2 )
-texture_hover = ExtResource( 6 )
+texture_pressed = ExtResource( 10 )
 expand = true
-
-[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/MainButtons/HairButton"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 15.0
-rect_pivot_offset = Vector2( -453.344, 87.1894 )
-custom_fonts/font = ExtResource( 7 )
-custom_colors/font_color = Color( 0.933333, 0.933333, 0.933333, 1 )
-text = "HAIR"
-valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="OptionButtons" type="VBoxContainer" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu"]
-margin_left = 224.0
-margin_right = 444.0
-margin_bottom = 456.0
-rect_min_size = Vector2( 220, 0 )
-size_flags_horizontal = 2
-size_flags_vertical = 2
-custom_constants/separation = 8
+[node name="RBtnEyes" type="TextureButton" parent="NinePatchRect/VBoxContainer/HBoxContainer/LeftMenu/ChangeEyes"]
+anchor_top = -1.35821
+anchor_bottom = -1.35821
+margin_left = 264.443
+margin_top = 97.5829
+margin_right = 304.443
+margin_bottom = 147.583
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 9 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
-[node name="SkinMenu" type="VBoxContainer" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons"]
-margin_right = 220.0
-margin_bottom = 224.0
-custom_constants/separation = 8
-script = ExtResource( 9 )
+[node name="SPACE" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/LeftMenu"]
+margin_top = 329.0
+margin_right = 323.0
+margin_bottom = 343.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="SkinOpt1" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu"]
-margin_right = 220.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 220, 50 )
-focus_neighbour_top = NodePath("../MenuSkin")
-focus_neighbour_bottom = NodePath("../MenuLips")
+[node name="PlayerBox" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
+margin_left = 327.0
+margin_right = 651.0
+margin_bottom = 513.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Player" parent="NinePatchRect/VBoxContainer/HBoxContainer/PlayerBox" instance=ExtResource( 1 )]
+position = Vector2( -191.918, -1.26431 )
+
+[node name="RightMenu" type="VBoxContainer" parent="NinePatchRect/VBoxContainer/HBoxContainer"]
+margin_left = 655.0
+margin_right = 979.0
+margin_bottom = 513.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="ChangeTop" type="TextureRect" parent="NinePatchRect/VBoxContainer/HBoxContainer/RightMenu"]
+margin_top = 134.0
+margin_right = 324.0
+margin_bottom = 201.0
+texture = ExtResource( 6 )
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/RightMenu/ChangeTop"]
+margin_left = 123.398
+margin_top = 14.3092
+margin_right = 189.398
+margin_bottom = 54.3092
+custom_fonts/font = ExtResource( 8 )
+text = "TOP"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LBtnTop" type="TextureButton" parent="NinePatchRect/VBoxContainer/HBoxContainer/RightMenu/ChangeTop"]
+anchor_top = -2.40299
+anchor_bottom = -2.40299
+margin_left = 12.1106
+margin_top = 169.329
+margin_right = 52.1106
+margin_bottom = 219.329
 texture_normal = ExtResource( 2 )
-texture_hover = ExtResource( 6 )
+texture_pressed = ExtResource( 10 )
 expand = true
-
-[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu/SkinOpt1"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 15.0
-rect_pivot_offset = Vector2( -453.344, 87.1894 )
-custom_fonts/font = ExtResource( 7 )
-custom_colors/font_color = Color( 0.933333, 0.933333, 0.933333, 1 )
-text = "SKIN 1"
-valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="SkinOpt2" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu"]
-margin_top = 58.0
-margin_right = 220.0
-margin_bottom = 108.0
-rect_min_size = Vector2( 220, 50 )
-focus_neighbour_top = NodePath("../MenuNose")
-focus_neighbour_bottom = NodePath("../MenuEyes")
+[node name="RBtnTop" type="TextureButton" parent="NinePatchRect/VBoxContainer/HBoxContainer/RightMenu/ChangeTop"]
+anchor_top = -2.41791
+anchor_bottom = -2.41791
+margin_left = 264.443
+margin_top = 168.583
+margin_right = 304.443
+margin_bottom = 218.583
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 9 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="SPACE2" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/RightMenu"]
+margin_top = 205.0
+margin_right = 324.0
+margin_bottom = 219.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChangeBottoms" type="TextureRect" parent="NinePatchRect/VBoxContainer/HBoxContainer/RightMenu"]
+margin_top = 223.0
+margin_right = 324.0
+margin_bottom = 290.0
+texture = ExtResource( 6 )
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/RightMenu/ChangeBottoms"]
+margin_left = 83.8324
+margin_top = 13.9126
+margin_right = 240.832
+margin_bottom = 53.9126
+custom_fonts/font = ExtResource( 8 )
+text = "BOTTOMS"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LBtnBottoms" type="TextureButton" parent="NinePatchRect/VBoxContainer/HBoxContainer/RightMenu/ChangeBottoms"]
+anchor_top = -1.35821
+anchor_bottom = -1.35821
+margin_left = 12.1106
+margin_top = 98.3295
+margin_right = 52.1106
+margin_bottom = 148.329
 texture_normal = ExtResource( 2 )
-texture_hover = ExtResource( 6 )
+texture_pressed = ExtResource( 10 )
 expand = true
-
-[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu/SkinOpt2"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 15.0
-rect_pivot_offset = Vector2( -453.344, 87.1894 )
-custom_fonts/font = ExtResource( 7 )
-custom_colors/font_color = Color( 0.933333, 0.933333, 0.933333, 1 )
-text = "SKIN 2"
-valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="SkinOpt3" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu"]
-margin_top = 116.0
-margin_right = 220.0
-margin_bottom = 166.0
-rect_min_size = Vector2( 220, 50 )
-focus_neighbour_top = NodePath("../MenuLips")
-focus_neighbour_bottom = NodePath("../MenuHair")
+[node name="RBtnBottoms" type="TextureButton" parent="NinePatchRect/VBoxContainer/HBoxContainer/RightMenu/ChangeBottoms"]
+anchor_top = -1.35821
+anchor_bottom = -1.35821
+margin_left = 264.443
+margin_top = 97.5829
+margin_right = 304.443
+margin_bottom = 147.583
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 9 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="SPACE" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/RightMenu"]
+margin_top = 294.0
+margin_right = 324.0
+margin_bottom = 308.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChangeWeapon" type="TextureRect" parent="NinePatchRect/VBoxContainer/HBoxContainer/RightMenu"]
+margin_top = 312.0
+margin_right = 324.0
+margin_bottom = 379.0
+texture = ExtResource( 6 )
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer/RightMenu/ChangeWeapon"]
+margin_left = 92.4379
+margin_top = 14.091
+margin_right = 230.438
+margin_bottom = 54.091
+custom_fonts/font = ExtResource( 8 )
+text = "WEAPON"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LBtnWeapon" type="TextureButton" parent="NinePatchRect/VBoxContainer/HBoxContainer/RightMenu/ChangeWeapon"]
+margin_left = 12.1106
+margin_top = 9.32947
+margin_right = 52.1106
+margin_bottom = 59.3295
 texture_normal = ExtResource( 2 )
-texture_hover = ExtResource( 6 )
+texture_pressed = ExtResource( 10 )
 expand = true
-
-[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu/SkinOpt3"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 15.0
-rect_pivot_offset = Vector2( -453.344, 87.1894 )
-custom_fonts/font = ExtResource( 7 )
-custom_colors/font_color = Color( 0.933333, 0.933333, 0.933333, 1 )
-text = "SKIN 3"
-valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="SkinOpt4" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu"]
-margin_top = 174.0
-margin_right = 220.0
-margin_bottom = 224.0
-rect_min_size = Vector2( 220, 50 )
-focus_neighbour_top = NodePath("../MenuEyes")
-focus_neighbour_bottom = NodePath("../MenuSkin")
-texture_normal = ExtResource( 2 )
-texture_hover = ExtResource( 6 )
+[node name="RBtnWeapon" type="TextureButton" parent="NinePatchRect/VBoxContainer/HBoxContainer/RightMenu/ChangeWeapon"]
+margin_left = 264.443
+margin_top = 8.58295
+margin_right = 304.443
+margin_bottom = 58.5829
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 9 )
 expand = true
-
-[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu/SkinOpt4"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 15.0
-rect_pivot_offset = Vector2( -453.344, 87.1894 )
-custom_fonts/font = ExtResource( 7 )
-custom_colors/font_color = Color( 0.933333, 0.933333, 0.933333, 1 )
-text = "SKIN 4"
-valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
-
-[node name="NoseMenu" type="VBoxContainer" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons"]
-margin_top = 232.0
-margin_right = 220.0
-margin_bottom = 456.0
-custom_constants/separation = 8
-script = ExtResource( 4 )
-
-[node name="NoseOpt1" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/NoseMenu"]
-margin_right = 220.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 220, 50 )
-focus_neighbour_top = NodePath("../MenuSkin")
-focus_neighbour_bottom = NodePath("../MenuLips")
-texture_normal = ExtResource( 2 )
-texture_hover = ExtResource( 6 )
-expand = true
-
-[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/NoseMenu/NoseOpt1"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 15.0
-rect_pivot_offset = Vector2( -453.344, 87.1894 )
-custom_fonts/font = ExtResource( 7 )
-custom_colors/font_color = Color( 0.933333, 0.933333, 0.933333, 1 )
-text = "NOSE 1"
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="NoseOpt2" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/NoseMenu"]
-margin_top = 58.0
-margin_right = 220.0
-margin_bottom = 108.0
-rect_min_size = Vector2( 220, 50 )
-focus_neighbour_top = NodePath("../MenuNose")
-focus_neighbour_bottom = NodePath("../MenuEyes")
-texture_normal = ExtResource( 2 )
-texture_hover = ExtResource( 6 )
-expand = true
-
-[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/NoseMenu/NoseOpt2"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 15.0
-rect_pivot_offset = Vector2( -453.344, 87.1894 )
-custom_fonts/font = ExtResource( 7 )
-custom_colors/font_color = Color( 0.933333, 0.933333, 0.933333, 1 )
-text = "NOSE 2"
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="NoseOpt3" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/NoseMenu"]
-margin_top = 116.0
-margin_right = 220.0
-margin_bottom = 166.0
-rect_min_size = Vector2( 220, 50 )
-focus_neighbour_top = NodePath("../MenuLips")
-focus_neighbour_bottom = NodePath("../MenuHair")
-texture_normal = ExtResource( 2 )
-texture_hover = ExtResource( 6 )
-expand = true
-
-[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/NoseMenu/NoseOpt3"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 15.0
-rect_pivot_offset = Vector2( -453.344, 87.1894 )
-custom_fonts/font = ExtResource( 7 )
-custom_colors/font_color = Color( 0.933333, 0.933333, 0.933333, 1 )
-text = "NOSE 3"
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="NoseOpt4" type="TextureButton" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/NoseMenu"]
-margin_top = 174.0
-margin_right = 220.0
-margin_bottom = 224.0
-rect_min_size = Vector2( 220, 50 )
-focus_neighbour_top = NodePath("../MenuEyes")
-focus_neighbour_bottom = NodePath("../MenuSkin")
-texture_normal = ExtResource( 2 )
-texture_hover = ExtResource( 6 )
-expand = true
-
-[node name="Label" type="Label" parent="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/NoseMenu/NoseOpt4"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 15.0
-rect_pivot_offset = Vector2( -453.344, 87.1894 )
-custom_fonts/font = ExtResource( 7 )
-custom_colors/font_color = Color( 0.933333, 0.933333, 0.933333, 1 )
-text = "NOSE 4"
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
-[connection signal="pressed" from="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/MainButtons/SkinButton" to="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/SkinMenu" method="_on_SkinButton_pressed"]
-[connection signal="pressed" from="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/MainButtons/NoseButton" to="GUI/NinePatchRect/VBoxContainer/CenterContainer/HBoxMain/VBoxRight/MainMenu/OptionButtons/NoseMenu" method="_on_NoseButton_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/HBoxContainer/LeftMenu/ChangeHair/LBtnHair" to="NinePatchRect/VBoxContainer/HBoxContainer/PlayerBox/Player" method="_on_LBtnHair_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/HBoxContainer/LeftMenu/ChangeHair/RBtnHair" to="NinePatchRect/VBoxContainer/HBoxContainer/PlayerBox/Player" method="_on_RBtnHair_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/HBoxContainer/LeftMenu/ChangeEyes/LBtnEyes" to="NinePatchRect/VBoxContainer/HBoxContainer/PlayerBox/Player" method="_on_LBtnEyes_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/HBoxContainer/LeftMenu/ChangeEyes/RBtnEyes" to="NinePatchRect/VBoxContainer/HBoxContainer/PlayerBox/Player" method="_on_RBtnEyes_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/HBoxContainer/RightMenu/ChangeTop/LBtnTop" to="NinePatchRect/VBoxContainer/HBoxContainer/PlayerBox/Player" method="_on_LBtnTop_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/HBoxContainer/RightMenu/ChangeTop/RBtnTop" to="NinePatchRect/VBoxContainer/HBoxContainer/PlayerBox/Player" method="_on_RBtnTop_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/HBoxContainer/RightMenu/ChangeBottoms/LBtnBottoms" to="NinePatchRect/VBoxContainer/HBoxContainer/PlayerBox/Player" method="_on_LBtnBottoms_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/HBoxContainer/RightMenu/ChangeBottoms/RBtnBottoms" to="NinePatchRect/VBoxContainer/HBoxContainer/PlayerBox/Player" method="_on_RBtnBottoms_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/HBoxContainer/RightMenu/ChangeWeapon/LBtnWeapon" to="NinePatchRect/VBoxContainer/HBoxContainer/PlayerBox/Player" method="_on_LBtnWeapon_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/HBoxContainer/RightMenu/ChangeWeapon/RBtnWeapon" to="NinePatchRect/VBoxContainer/HBoxContainer/PlayerBox/Player" method="_on_RBtnWeapon_pressed"]

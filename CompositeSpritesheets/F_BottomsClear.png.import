@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/button_pressed.png-9d49f6db42d170c1706809adbd6fc90e.stex"
+path="res://.import/F_BottomsClear.png-faf3fbebadc6fb6ec34f80dd3dca10a6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Buttons/button_pressed.png"
-dest_files=[ "res://.import/button_pressed.png-9d49f6db42d170c1706809adbd6fc90e.stex" ]
+source_file="res://CompositeSpritesheets/F_BottomsClear.png"
+dest_files=[ "res://.import/F_BottomsClear.png-faf3fbebadc6fb6ec34f80dd3dca10a6.stex" ]
 
 [params]
 

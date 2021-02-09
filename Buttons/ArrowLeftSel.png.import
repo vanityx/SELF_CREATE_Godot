@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/button_normal.jpg-0caa1f949638639f34e0936661c255c8.stex"
+path="res://.import/ArrowLeftSel.png-38a8c1f1393e1987ec81035359498657.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Buttons/button_normal.jpg"
-dest_files=[ "res://.import/button_normal.jpg-0caa1f949638639f34e0936661c255c8.stex" ]
+source_file="res://Buttons/ArrowLeftSel.png"
+dest_files=[ "res://.import/ArrowLeftSel.png-38a8c1f1393e1987ec81035359498657.stex" ]
 
 [params]
 
