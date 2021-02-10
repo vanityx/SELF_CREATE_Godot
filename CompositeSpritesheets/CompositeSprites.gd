@@ -12,6 +12,7 @@ const hair_spritesheet = {
 	0 : preload("res://CompositeSpritesheets/F_Hair1_Black.png"),
 	1 : preload("res://CompositeSpritesheets/F_Hair1_White.png"),
 	2 : preload("res://CompositeSpritesheets/F_Hair1_Green.png"),
+	3 : preload("res://CompositeSpritesheets/F_Hair1_Blonde.png"),
 }
 
 const eyes_spritesheet = {

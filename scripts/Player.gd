@@ -1,5 +1,8 @@
 extends Node2D
 
+func _process(delta):
+	$AnimationPlayer.play("Idle_Move")
+
 onready var bodySprite = $CompositeSprites/Body
 onready var armsSprite = $CompositeSprites/Arms
 onready var hairSprite = $CompositeSprites/Hair
