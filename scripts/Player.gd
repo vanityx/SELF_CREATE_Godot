@@ -71,7 +71,6 @@ func _on_LBtnTop_pressed():
 	for i in FullBodyTops:
 		if curr_top == i:
 			bottomsSprite.texture = null
-			return
 		else:
 			bottomsSprite.texture = composite_sprites.bottoms_spritesheet[curr_bottoms]
 		
@@ -81,7 +80,6 @@ func _on_RBtnTop_pressed():
 	for i in FullBodyTops:
 		if curr_top == i:
 			bottomsSprite.texture = null
-			return
 		else:
 			bottomsSprite.texture = composite_sprites.bottoms_spritesheet[curr_bottoms]
 	
