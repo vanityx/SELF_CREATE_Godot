@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Buttons/Arrowleft.png" type="Texture" id=2]
-[ext_resource path="res://Buttons/scene_background.jpg" type="Texture" id=3]
+[ext_resource path="res://Buttons/91657.jpg" type="Texture" id=3]
 [ext_resource path="res://Buttons/Arrowright.png" type="Texture" id=5]
 [ext_resource path="res://Buttons/ButtonNormal.png" type="Texture" id=6]
 [ext_resource path="res://Fonts/dogicapixelbold.tres" type="DynamicFont" id=8]
@@ -20,7 +20,7 @@ __meta__ = {
 margin_right = 1024.0
 margin_bottom = 600.0
 texture = ExtResource( 3 )
-region_rect = Rect2( -1, 17, 624, 397 )
+region_rect = Rect2( 5, 6, 4989, 3323 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -46,7 +46,7 @@ margin_right = 610.0
 margin_bottom = 38.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 8 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0.694118, 0.368627, 0.701961, 1 )
 text = "SELF_CREATE"
 align = 1
 valign = 1

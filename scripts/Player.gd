@@ -4,26 +4,33 @@ func _process(delta):
 	$AnimationPlayer.play("Idle_Move")
 
 onready var bodySprite = $CompositeSprites/Body
-onready var armsSprite = $CompositeSprites/Arms
-onready var hairSprite = $CompositeSprites/Hair
+onready var armsLeftSprite = $CompositeSprites/ArmsLeft
+onready var armsRightSprite = $CompositeSprites/ArmsRight
 onready var eyesSprite = $CompositeSprites/Eyes
 onready var topSprite = $CompositeSprites/Top
 onready var bottomsSprite = $CompositeSprites/Bottoms
+onready var hairSprite = $CompositeSprites/Hair
+onready var weaponsSprite = $CompositeSprites/Weapons
 
 const composite_sprites = preload("res://CompositeSpritesheets/CompositeSprites.gd")
 
-var curr_hair: int = 0
+var curr_body: int = 0
 var curr_eyes: int = 0
 var curr_top: int = 0
 var curr_bottoms: int = 0
+var curr_hair: int = 0
+var curr_weapon: int = 0
+var FullBodyTops = [5, 6]
 
 func _ready():
-	bodySprite.texture = composite_sprites.body_spritesheet[0]
-	armsSprite.texture = composite_sprites.arms_spritesheet[0]
+	bodySprite.texture = composite_sprites.body_spritesheet[curr_body]
+	armsLeftSprite.texture = composite_sprites.armsLeft_spritesheet[0]
+	armsRightSprite.texture = composite_sprites.armsRight_spritesheet[2]
 	hairSprite.texture = composite_sprites.hair_spritesheet[curr_hair]
 	eyesSprite.texture = composite_sprites.eyes_spritesheet[curr_eyes]
-	topSprite.texture = composite_sprites.top_spritesheet[curr_top]
 	bottomsSprite.texture = composite_sprites.bottoms_spritesheet[curr_bottoms]
+	topSprite.texture = composite_sprites.top_spritesheet[curr_top]
+	weaponsSprite.texture = composite_sprites.weapons_spritesheet[curr_weapon]
 	
 
 func _on_LBtnHair_pressed():
@@ -61,11 +68,22 @@ func _on_LBtnTop_pressed():
 	else:
 		curr_top = (curr_top - 1) % composite_sprites.top_spritesheet.size()
 		topSprite.texture = composite_sprites.top_spritesheet[curr_top]
-			
+	for i in FullBodyTops:
+		if curr_top == i:
+			bottomsSprite.texture = null
+			return
+		else:
+			bottomsSprite.texture = composite_sprites.bottoms_spritesheet[curr_bottoms]
 		
 func _on_RBtnTop_pressed():
 	curr_top = (curr_top + 1) % composite_sprites.top_spritesheet.size()
 	topSprite.texture = composite_sprites.top_spritesheet[curr_top]
+	for i in FullBodyTops:
+		if curr_top == i:
+			bottomsSprite.texture = null
+			return
+		else:
+			bottomsSprite.texture = composite_sprites.bottoms_spritesheet[curr_bottoms]
 	
 
 func _on_LBtnBottoms_pressed():
@@ -83,8 +101,22 @@ func _on_RBtnBottoms_pressed():
 
 
 func _on_LBtnWeapon_pressed():
-	pass # Replace with function body.
-
-
+	if curr_weapon == 0:
+		curr_weapon = composite_sprites.weapons_spritesheet.size() - 1
+		weaponsSprite.texture = composite_sprites.weapons_spritesheet[curr_weapon]
+	else:
+		curr_weapon = (curr_weapon - 1) % composite_sprites.weapons_spritesheet.size()
+		weaponsSprite.texture = composite_sprites.weapons_spritesheet[curr_weapon]
+	if curr_weapon != 0:
+		armsRightSprite.texture = composite_sprites.armsRight_spritesheet[0]
+	else:
+		armsRightSprite.texture = composite_sprites.armsRight_spritesheet[2]
+				
+		
 func _on_RBtnWeapon_pressed():
-	pass # Replace with function body.
+	curr_weapon = (curr_weapon + 1) % composite_sprites.weapons_spritesheet.size()
+	weaponsSprite.texture = composite_sprites.weapons_spritesheet[curr_weapon]
+	if curr_weapon != 0:
+		armsRightSprite.texture = composite_sprites.armsRight_spritesheet[0]
+	else:
+		armsRightSprite.texture = composite_sprites.armsRight_spritesheet[2]
