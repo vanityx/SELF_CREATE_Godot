@@ -1,6 +1,6 @@
 # SELF_CREATE_Godot
 
-SELF_CREATE is a currently small scale character customisation feature made using the Godot game engine.
+SELF_CREATE is a small scale character customisation feature made using the Godot game engine.
 It features animation and custom Pixel Art sprites made with Aseprite, with a fully functioning selection menu.
 
 Live demo video of the game:
